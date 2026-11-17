@@ -70,7 +70,7 @@ nav a {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-    scroll-snap-type: start; .
+    scroll-snap-align: start; 
 }
 .boton-whatsapp {
     display: inline-block;
@@ -115,4 +115,34 @@ nav a {
     text-align: center;
     padding: 20px;
     font-size: 14px;
+}
+.galeria img, .galeria video {
+    cursor: pointer;
+}
+.visor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.visor img, .visor video {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+#cerrar-visor {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
