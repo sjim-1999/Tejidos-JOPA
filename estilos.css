@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(214, 46, 197);
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff;
+}
+nav a {
+    text-decoration: none;
+    color: #30f458;
+    margin-left: 20px;
+    font-weight: bold;
+}
+.portada {
+    text-align: center;
+    padding: 100px 20px;
+}
+.boton {
+    display: inline-block;
+    background-color: #30f458;
+    color: #ffffff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
