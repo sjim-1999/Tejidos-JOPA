@@ -118,6 +118,8 @@ nav a {
 }
 .galeria img, .galeria video {
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 .visor {
     display: none;

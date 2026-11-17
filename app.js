@@ -6,38 +6,57 @@ const cerrarVisor = document.getElementById('cerrar-visor');
 const fotos = document.querySelectorAll('.galeria img');
 const videos = document.querySelectorAll('.galeria video');
 
+function abrirFoto(src) {
+    if (!visor) return;
+    videoGrande.pause();
+    videoGrande.style.display = 'none';
+    imagenGrande.src = src;
+    imagenGrande.style.display = 'block';
+    visor.style.display = 'flex';
+}
+
+function abrirVideo(videoElement) {
+    if (!visor) return;
+    videoElement.pause();
+    imagenGrande.style.display = 'none';
+    videoGrande.src = videoElement.currentSrc || videoElement.src;
+    videoGrande.style.display = 'block';
+    visor.style.display = 'flex';
+    videoGrande.play().catch(() => {});
+}
+
 fotos.forEach(foto => {
-    foto.addEventListener('click', () => {
-        videoGrande.pause();
-        videoGrande.style.display = 'none';
-        imagenGrande.src = foto.src;
-        imagenGrande.style.display = 'block';
-        visor.style.display = 'flex';
-    });
+    foto.addEventListener('click', () => abrirFoto(foto.src));
 });
 
 videos.forEach(video => {
+    // Quitamos controles nativos en la miniatura para que el toque abra el visor
+    video.removeAttribute('controls');
+    video.setAttribute('playsinline', '');
+    
     video.addEventListener('click', (evento) => {
         evento.preventDefault();
-        video.pause();
-        imagenGrande.style.display = 'none';
-        videoGrande.src = video.currentSrc || video.src;
-        videoGrande.style.display = 'block';
-        visor.style.display = 'flex';
-        videoGrande.play();
+        evento.stopPropagation();
+        abrirVideo(video);
     });
 });
 
 function cerrarModal() {
+    if (!visor) return;
     visor.style.display = 'none';
     videoGrande.pause();
-    videoGrande.src = '';
+    videoGrande.removeAttribute('src');
+    videoGrande.load();
 }
 
-cerrarVisor.addEventListener('click', cerrarModal);
+if (cerrarVisor) {
+    cerrarVisor.addEventListener('click', cerrarModal);
+}
 
-visor.addEventListener('click', (evento) => {
-    if (evento.target === visor) {
-        cerrarModal();
-    }
-});
+if (visor) {
+    visor.addEventListener('click', (evento) => {
+        if (evento.target === visor) {
+            cerrarModal();
+        }
+    });
+}
