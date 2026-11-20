@@ -4,7 +4,7 @@
 ======================================== */
 
 // Número de WhatsApp en formato internacional
-const NUMERO_WHATSAPP = "593981809980";
+const NUMERO_WHATSAPP = "593994041162";
 
 // ========================================
 // FILTROS DEL CATÁLOGO
