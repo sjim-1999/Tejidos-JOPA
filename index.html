@@ -1,84 +1,517 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejidos JOPA</title>
-    <link rel="stylesheet" href="estilos.css?v=2">
+
+    <title>Tejidos JOPA | Artesanía en Crochet</title>
+    <div id="lista-productos" class="productos-tienda"></div>
+    <meta name="description" content="Amigurumis, flores, prendas y accesorios tejidos a crochet. Diseños artesanales y personalizados hechos con amor.">
+
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <header>
-        <h1>TEJIDOS JOPA</h1>
-        <nav>
+
+    <!-- ENCABEZADO -->
+    <header class="header">
+        <a href="#inicio" class="logo">
+            <span class="logo-icon">🧶</span>
+            <span>
+                <strong>TEJIDOS JOPA</strong>
+                <small>Tejido con amor</small>
+            </span>
+        </a>
+
+        <nav class="nav" id="nav">
             <a href="#inicio">Inicio</a>
-            <a href="#catalogo">Catalogo</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
         </nav>
+
+        <div class="header-actions">
+            <button class="cart-button" id="abrir-carrito" aria-label="Abrir carrito">
+                <span>🛍</span>
+                <span>Pedido</span>
+                <span class="cart-count" id="contador-carrito">0</span>
+            </button>
+
+            <button class="menu-button" id="menu-button" aria-label="Abrir menú">
+                ☰
+            </button>
+        </div>
     </header>
-    <section id="inicio" class="portada">
-        <h2>Piezas únicas tejidas con dedicación</h2>
-        <p>Prendas, accesorios y amigurumis artesanales hechos a mano.</p>
-        <a href="#catalogo" class="boton">Ver catálogo</a>
-        <a href="https://wa.me/+593981809980?text=hola%20Tejidos%20JOPA,%20quiero%20hacer%20un%20pedido" target="_blank" class="boton-whatsapp">Pedir por Whatsapp</a>
-    </section>
-    <section id="catalogo" class="catalogo">
-        <h2>Nuestros Tejidos</h2>
-        <div class="tarjetas">
-            <article class="tarjeta">
-                <h3>Conjuntos</h3>
-                <p class="etiqueta-galeria"> Fotos</p>
-                <div class="galeria">
-                    <img src="img/ropabebeoso.jpeg" alt="Conjunto de osito para tu bebe">
-                </div>
-                <p>Prendas cálidas tejidas a medida en tus colores favoritos.</p>
-                <span>Desde $25.00</span>
-                <a href="https://wa.me/+593981809980?text=Hola,%20me%20interesa%20un%20Conjunto" target="_blank" class="btn-pedir">Pedir por Whatsapp</a>
-            </article>
-            <article class="tarjeta">
-                <h3>Amigurumis</h3>
-                <p class="etiqueta-galeria"> Fotos</p>
-                <div class="galeria">
-                    <img src="img/abuelita.jpeg" alt="Amigurumi Abuelita Personalizada">
-                    <img src="img/grinch.jpeg" alt="Amigurumi Grinch Navideño">
-                    <img src="img/luffy.jpeg" alt="Amigurumi Lufy Sombrero de Paja">
-                    <img src="img/perico.jpeg" alt="Amigurumi Periquito">
-                </div>
-                <p class="etiqueta-galeria"> Videos</p>
-                <div class="galeria">
-                    <video src="img/hamster.mp4" autoplay loop muted playsinline></video>
-                    <video src="img/virgencita.mp4" autoplay loop muted playsinline></video>
-                </div>
-                <p>Muñecos artesanales personalizados a tu gusto ideales para regalos.</p>
-                <span>Desde $3.50</span>
-                <a href="https://wa.me/+593981809980?text=Hola,%20me%20interesa%20un%20Amigurumi" target="_blank" class="btn-pedir">Pedir por Whatsapp</a>
-            </article>
-            <article class="tarjeta">
-                <h3>Rosas</h3>
-                <p class="etiqueta-galeria">Fotos</p>
-                <div class="galeria">
-                    <img src="img/macetagirasol.jpeg" alt="Hermosa macetita de girasol ideal para tu escritorio en tu oficina">
-                    <img src="img/ramovaca.jpeg" alt="Hermoso ramo diseñado combinado con rosas y un hermoso Amigurumi de vaquita">
-                    <img src="img/rosaroja.jpeg" alt="Hermosa rosa roja para consentirla con pequeños detalles">
-                </div>
-                <p>Detalles resistentes y únicos diseñamos con amor cada detalle.</p>
-                <span>Desde $5.00</span>
-                <a href="https://wa.me/+593981809980?text=Hola,%20me%20interesa%20un%20ramo" target="_blank" class="btn-pedir">Pedir por Whatsapp</a>
-            </article>
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="eyebrow">CREACIONES ARTESANALES</span>
+
+            <h1>Pequeños detalles,<br>grandes emociones.</h1>
+
+            <p>
+                Transformamos hilo y lana en recuerdos especiales.
+                Amigurumis, flores, prendas y accesorios tejidos
+                a mano con dedicación.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn btn-primary">
+                    Explorar catálogo
+                </a>
+
+                <a
+                    href="https://wa.me/593981809980?text=Hola%20Tejidos%20JOPA,%20quiero%20conocer%20sus%20productos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-outline"
+                >
+                    Hacer una consulta
+                </a>
+            </div>
+
+            <div class="hero-benefits">
+                <span>♡ Hecho a mano</span>
+                <span>✦ Diseños personalizados</span>
+                <span>♧ Envíos nacionales</span>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img
+                src="img/abuelita.jpeg"
+                alt="Amigurumi artesanal Tejidos JOPA"
+            >
+            <div class="hero-image-label">
+                <span>Hecho con amor</span>
+                <strong>100% artesanal</strong>
+            </div>
         </div>
     </section>
-    <section id="contacto" class="contacto">
-        <h2>¿Buscas un diseño personalizado?</h2>
-        <p>Hacemos tejidos a medida en los colores y tamaños que prefieras. Envios a todo el Ecuador y entregas sin recargo adicional dentro de Santo Domingo de los Tsachilas.</p>
-        <a href="https://wa.me/+593981809980?text=Hola%20Tejidos%20Jopa,%20quisiera%20cotizar%20un%20pedido%20personalizado" target="_blank" class="boton-whatsapp">Escríbenos por WhatsApp</a>
-    </section> 
-    <footer class="pie">
-        <p>&copy; 2026 Tejidos JOPA - Hecho a mano con amor en cada detalle.</p>
+
+    <!-- BENEFICIOS -->
+    <section class="benefits">
+        <article>
+            <span>🧶</span>
+            <h3>Hecho a mano</h3>
+            <p>Cada pieza es elaborada con dedicación.</p>
+        </article>
+
+        <article>
+            <span>🎨</span>
+            <h3>Personalizados</h3>
+            <p>Escoge colores, tamaños y detalles.</p>
+        </article>
+
+        <article>
+            <span>🎁</span>
+            <h3>Regalos únicos</h3>
+            <p>Detalles especiales para momentos inolvidables.</p>
+        </article>
+
+        <article>
+            <span>📦</span>
+            <h3>Envíos</h3>
+            <p>Envíos a diferentes lugares del Ecuador.</p>
+        </article>
+    </section>
+
+    <!-- CATÁLOGO -->
+     <section class="catalog-section" id="catalogo">
+
+        <div class="section-heading">
+            <span class="eyebrow">NUESTRAS CREACIONES</span>
+            <h2>Un mundo tejido para ti</h2>
+            <p>
+                Selecciona una categoría para ver los diseños disponibles y sus precios.
+            </p>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn activa" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="conjuntos">Conjuntos</button>
+            <button class="filter-btn" data-filter="amigurumis">Amigurumis</button>
+            <button class="filter-btn" data-filter="rosas">Flores y arreglos</button>
+        </div>
+
+        <div class="product-grid">
+
+            <!-- CONJUNTOS -->
+            <article class="product-card" data-category="conjuntos">
+                <div class="product-image">
+                    <img src="img/ropabebeoso.jpeg" alt="Conjunto de osito tejido" loading="lazy">
+                    <span class="product-tag">Personalizable</span>
+                </div>
+
+                <div class="product-info">
+                    <span class="product-category">ROPA Y ACCESORIOS</span>
+                    <h3>Conjuntos tejidos</h3>
+                    <p>Prendas cálidas elaboradas a medida en tus colores favoritos.</p>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="abrirCategoria('seccion-conjuntos')">
+                            Ver galería
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- AMIGURUMIS -->
+            <article class="product-card" data-category="amigurumis">
+                <div class="product-image">
+                    <img src="img/grinch.jpeg" alt="Amigurumi Grinch tejido" loading="lazy">
+                    <span class="product-tag">Personalizable</span>
+                </div>
+
+                <div class="product-info">
+                    <span class="product-category">MUÑECOS ARTESANALES</span>
+                    <h3>Amigurumis</h3>
+                    <p>Muñecos tejidos personalizados, ideales para regalar.</p>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="abrirCategoria('seccion-amigurumis')">
+                            Ver galería
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ROSAS -->
+            <article class="product-card" data-category="rosas">
+                <div class="product-image">
+                    <img src="img/rosaroja.jpeg" alt="Rosa roja tejida a crochet" loading="lazy">
+                    <span class="product-tag">Hecho con amor</span>
+                </div>
+
+                <div class="product-info">
+                    <span class="product-category">FLORES ARTESANALES</span>
+                    <h3>Rosas y arreglos</h3>
+                    <p>Flores y arreglos tejidos que perduran y decoran momentos especiales.</p>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="abrirCategoria('seccion-rosas')">
+                            Ver galería
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- GALERÍA DE CONJUNTOS (CADA IMAGEN CON SU PRECIO) -->
+    <section id="seccion-conjuntos" class="galeria-categoria">
+
+        <button class="btn-volver" onclick="volverAlInicio()">
+            ← Volver al catálogo
+        </button>
+
+        <div class="section-heading">
+            <span class="eyebrow">ROPA ARTESANAL</span>
+            <h2>Conjuntos tejidos</h2>
+        </div>
+
+        <div class="cuadricula-fotos">
+            <article class="foto-item">
+                <img src="img/ropabebeoso.jpeg" alt="Conjunto de osito para bebé" loading="lazy">
+                <div class="foto-info">
+                    <h4>Conjunto de osito bebé</h4>
+                    <strong class="foto-precio">$25.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Conjunto de osito bebé" data-price="25.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+        </div>
+
+        <a
+            href="https://wa.me/593981809980?text=Hola,%20quiero%20cotizar%20un%20conjunto"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+        >
+            Cotizar diseño personalizado
+        </a>
+    </section>
+
+    <!-- GALERÍA DE AMIGURUMIS (CADA IMAGEN CON SU PRECIO) -->
+    <section id="seccion-amigurumis" class="galeria-categoria">
+
+        <button class="btn-volver" onclick="volverAlInicio()">
+            ← Volver al catálogo
+        </button>
+
+        <div class="section-heading">
+            <span class="eyebrow">MUÑECOS ARTESANALES</span>
+            <h2>Amigurumis</h2>
+        </div>
+
+        <div class="cuadricula-fotos">
+            <article class="foto-item">
+                <img src="img/abuelita.jpeg" alt="Amigurumi abuelita" loading="lazy">
+                <div class="foto-info">
+                    <h4>Amigurumi Abuelita</h4>
+                    <strong class="foto-precio">$15.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Abuelita" data-price="15.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <img src="img/grinch.jpeg" alt="Amigurumi Grinch" loading="lazy">
+                <div class="foto-info">
+                    <h4>Amigurumi Grinch</h4>
+                    <strong class="foto-precio">$12.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Grinch" data-price="12.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <img src="img/luffy.jpeg" alt="Amigurumi Luffy" loading="lazy">
+                <div class="foto-info">
+                    <h4>Amigurumi Luffy</h4>
+                    <strong class="foto-precio">$18.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Luffy" data-price="18.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <img src="img/perico.jpeg" alt="Amigurumi periquito" loading="lazy">
+                <div class="foto-info">
+                    <h4>Amigurumi Periquito</h4>
+                    <strong class="foto-precio">$8.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Periquito" data-price="8.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <video src="img/hamster.mp4" muted playsinline preload="metadata" controls></video>
+                <div class="foto-info">
+                    <h4>Amigurumi Hámster</h4>
+                    <strong class="foto-precio">$6.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Hámster" data-price="6.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <video src="img/virgencita.mp4" muted playsinline preload="metadata" controls></video>
+                <div class="foto-info">
+                    <h4>Amigurumi Virgencita</h4>
+                    <strong class="foto-precio">$15.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Amigurumi Virgencita" data-price="15.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+        </div>
+
+        <a
+            href="https://wa.me/593981809980?text=Hola,%20quiero%20cotizar%20un%20amigurumi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+        >
+            Cotizar diseño personalizado
+        </a>
+    </section>
+
+    <!-- GALERÍA DE ROSAS (CADA IMAGEN CON SU PRECIO) -->
+    <section id="seccion-rosas" class="galeria-categoria">
+
+        <button class="btn-volver" onclick="volverAlInicio()">
+            ← Volver al catálogo
+        </button>
+
+        <div class="section-heading">
+            <span class="eyebrow">FLORES ARTESANALES</span>
+            <h2>Rosas y arreglos</h2>
+        </div>
+
+        <div class="cuadricula-fotos">
+            <article class="foto-item">
+                <img src="img/macetagirasol.jpeg" alt="Macetita de girasol" loading="lazy">
+                <div class="foto-info">
+                    <h4>Macetita de Girasol</h4>
+                    <strong class="foto-precio">$10.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Macetita de Girasol" data-price="10.00">
+                        Agregar al pedido
+                    </button>
+                </div>
+            </article>
+
+            <article class="foto-item">
+                <img src="img/ramovaca.jpeg" alt="Ramo de rosas con vaquita" loading="lazy">
+                <div class="foto-info">
+                    <h4>Ramo de rosas con vaquita</h4>
+                    <strong class="foto-precio">$20.00</strong>
+                    <button class="btn btn-primary btn-small" data-add="Ramo de rosas con vaquita" data-price="20.00">
+       </section>
+
+    <!-- NOSOTROS -->
+    <section class="about-section" id="nosotros">
+
+        <div class="about-image">
+            <img
+                src="img/abuelita.jpeg"
+                alt="Detalle artesanal de Tejidos JOPA"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="about-content">
+            <span class="eyebrow">NUESTRA ESENCIA</span>
+
+            <h2>Tejer es crear con el corazón.</h2>
+
+            <p>
+                En Tejidos JOPA creemos que cada puntada tiene
+                una historia. Elaboramos productos artesanales
+                con cariño, paciencia y dedicación, convirtiendo
+                la lana en pequeños detalles que transmiten emociones.
+            </p>
+
+            <p>
+                Cada creación puede ser especial, personalizada
+                y pensada para regalar, decorar o acompañarte.
+            </p>
+
+            <a href="#catalogo" class="btn btn-primary">
+                Descubre nuestras creaciones
+            </a>
+        </div>
+    </section>
+
+<section id="carrito" class="carrito">
+    <h2>🛒 Mi carrito</h2>
+    <div id="contenido-carrito"></div>
+    <p id="total-carrito">Total: $0.00</p>
+    <button id="btn-finalizar" type="button" class="boton-whatsapp">
+        Finalizar pedido por WhatsApp
+    </button>
+</section>
+
+    <!-- CONTACTO -->
+    <section class="contact-section" id="contacto">
+
+        <div class="contact-content">
+            <span class="eyebrow">ESTAMOS PARA TI</span>
+
+            <h2>¿Tienes una idea que quieres tejer?</h2>
+
+            <p>
+                Cuéntanos cómo imaginas tu producto.
+                Creamos diseños personalizados en colores,
+                tamaños y estilos que se adapten a ti.
+            </p>
+
+            <a
+                href="https://wa.me/593981809980?text=Hola%20Tejidos%20JOPA,%20quiero%20cotizar%20un%20producto%20personalizado"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+            >
+                <span>Consultar por WhatsApp</span>
+            </a>
+
+            <p class="contact-extra">
+                Envíos a todo Ecuador · Entregas en Santo Domingo
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-brand">
+            <span>🧶</span>
+            <h2>TEJIDOS JOPA</h2>
+            <p>El arte de tejer con amor.</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+
+        <p class="copyright">
+            &copy; 2026 Tejidos JOPA.
+            Todos los derechos reservados.
+        </p>
     </footer>
-    <div id="visor" class="visor">
-        <span id="cerrar-visor">&times;</span>
-        <img id="imagen-grande" src="" alt="Vista ampliada">
-        <video id="video-grande" controls></video>
+
+    <!-- CARRITO -->
+    <div class="cart-overlay" id="cart-overlay">
+
+        <aside class="cart-panel">
+
+            <div class="cart-header">
+                <h2>Tu pedido</h2>
+
+                <button id="cerrar-carrito" class="cart-close" aria-label="Cerrar carrito">
+                    &times;
+                </button>
+            </div>
+
+            <div id="cart-items" class="cart-items">
+                <p class="cart-empty">
+                    Aún no has agregado productos.
+                </p>
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="cart-total">
+                    <span>Subtotal referencial:</span>
+                    <strong id="cart-total">$0.00</strong>
+                </div>
+
+                <small>
+                    Los precios corresponden a valores desde.
+                    El precio final se confirmará por WhatsApp.
+                </small>
+
+                <button id="enviar-pedido" class="btn btn-primary cart-checkout">
+                    Enviar pedido por WhatsApp
+                </button>
+
+                <button id="vaciar-carrito" class="btn btn-light cart-clear">
+                    Vaciar pedido
+                </button>
+            </div>
+
+        </aside>
     </div>
-    <script src="app.js?"></script>
+
+    <!-- VISOR -->
+    <div id="visor" class="visor">
+
+        <button id="cerrar-visor" aria-label="Cerrar visor">
+            &times;
+        </button>
+
+        <img id="imagen-grande" src="" alt="Vista ampliada">
+
+        <video id="video-grande" controls playsinline></video>
+    </div>
+
+    <!-- AVISO -->
+    <div id="toast" class="toast">
+        Producto agregado al pedido
+    </div>
+
+    <script src="app.js"></script>
+
 </body>
 </html>
