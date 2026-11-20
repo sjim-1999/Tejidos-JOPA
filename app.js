@@ -447,4 +447,41 @@ function mostrarToast(mensaje) {
 // ========================================
 
 renderizarCarrito();
+const FIREBASE_VISITAS_URL = "https://tejidos-jopa-default-rtdb.firebaseio.com/visitas.json";
 
+async function registrarYMostrarVisita() {
+  const contadorEl = document.getElementById("contador-visitas");
+  if (!contadorEl) return;
+
+  try {
+    // 1. Obtener el total actual guardado en la nube
+    const respuestaGet = await fetch(FIREBASE_VISITAS_URL);
+    if (!respuestaGet.ok) {
+      throw new Error("No se pudo leer el contador");
+    }
+
+    const valorActual = Number(await respuestaGet.json()) || 0;
+    const nuevoTotal = valorActual + 1;
+
+    // 2. Guardar el nuevo total (+1)
+    const respuestaPut = await fetch(FIREBASE_VISITAS_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(nuevoTotal)
+    });
+
+    if (!respuestaPut.ok) {
+      throw new Error("No se pudo actualizar el contador");
+    }
+
+    // 3. Mostrarlo formateado para todos
+    contadorEl.textContent = nuevoTotal.toLocaleString("es-EC");
+  } catch (error) {
+    console.error("Error en el contador de visitas:", error);
+    contadorEl.textContent = "—";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", registrarYMostrarVisita);
